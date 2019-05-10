@@ -1,0 +1,55 @@
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+    public static void main(String[] args) {
+
+        Access a = new Access();
+
+        a.run();
+
+    }
+}
+class Access {
+    public String username,password;
+
+    public Access()
+    {
+        username = "Micheal";
+        password = "123456";
+    }
+
+    public void forSuccess()
+    {
+        System.out.println("Access Denied");
+    }
+    public void forFailed()
+    {
+        System.out.println("Access Failed");
+    }
+
+    public void run()
+    {
+        Scanner kb = new Scanner(System.in);
+
+        int count = 3;
+
+        while (count-- > 0) {
+            System.out.println("Enter Username");
+            String Username = kb.nextLine().trim();
+            System.out.println("Enter Password");
+            String Password = kb.nextLine().trim();
+
+            if (username.equals(Username) && password.equals(Password))
+                break;
+            System.out.printf("remaining enter count:%d", count);
+            System.out.println();
+        }
+
+        if (count == -1)
+            forFailed();
+        else
+            forSuccess();
+
+    }
+}
